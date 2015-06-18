@@ -31,7 +31,7 @@ html,article,section,body
 {
     background-image : url("../img/pocheA-_1.jpg");
     background-size : 100%;
-    height : 90%;
+    height : 100%;
     margin : 0;
     padding : 0;
     display : flex;
@@ -63,7 +63,7 @@ article
     position : relative;
 }	
 
-#popupDebut,#popupFin1,#popupFin2,#popupFin3,#histoirePopup
+#popupDebut,#popupFin1,#popupFin2,#popupFin3,#histoirePopup,#choisirPopup
 {
     background-color : #E8E8E8;
     width : 70%;
@@ -117,7 +117,16 @@ article
     color : white;
 }
 
-#popupDebut>p,#popupFin1>p,#popupFin2>p,#popupFin3>p,#histoirePopup>p
+#choixNiveau,#choixGroupe
+{
+    display : flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size : 5em;
+    font-family : 'print_boldregular';
+}
+
+#popupDebut>p,#popupFin1>p,#popupFin2>p,#popupFin3>p,#histoirePopup>p,#choisirPopup>p
 {
     font-family : 'print_boldregular';
     margin : 0;
@@ -130,17 +139,6 @@ article
 #popupDebut
 {
     padding : 5%;
-}
-
-
-#groupes
-{
-    position : absolute;
-    bottom : 0;
-    width : 100%;
-    display : flex;
-    justify-content : space-between;
-    height:10%;
 }
 
 body
@@ -184,4 +182,17 @@ body
         z-index:50;
     }
 
+}
+
+#choixNiveau>p,#choixGroupe>p
+{
+    margin-right : 5%;
+    border : 3px solid black;
+    padding : 0.5%;
+}
+
+.selectedLvl,.selectedGr
+{
+	color:white;
+	background-color:black;
 }

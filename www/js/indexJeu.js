@@ -1,10 +1,11 @@
-window.addEventListener("load", genererHistoire);
 window.addEventListener("load", initialiser);
+window.addEventListener("load", genererHistoire);
 var leGroupe;
 var secondes = 30;
 var numTimer;
 var nbClick = 1;
-var idGroupeSelected;
+var idGroupeSelected = "";
+var idLvlSelected = "";
 var aPlus = new Array(5); 
 for (var a=0; a < 5; a++) { 
   aPlus[a] = new Image();
@@ -67,6 +68,8 @@ function initialiser(evt)
     popupFin2.style.display = "none";
     var popupFin3 = document.getElementById("popupFin3");
     popupFin3.style.display = "none";
+    var choisirPopup = document.getElementById("choisirPopup");
+    choisirPopup.style.display = "none";
     var chrono = document.getElementById("chrono");
     chrono.style.display = "none";
     var popupDebut = document.getElementById("popupDebut");
@@ -75,12 +78,9 @@ function initialiser(evt)
     for (var i =0; i<btnRecommencer.length; i++)
     {
         btnRecommencer[i].addEventListener("touchstart", rejouer);
-    }
-}
-
-function rejouer(evt)
-{
-    location.reload();
+    }           
+    var btnGo = document.getElementById("btnGo");
+    btnGo.addEventListener("touchstart", afficherRegles);
 }
 
 function genererHistoire(evt)
@@ -108,36 +108,132 @@ function genererHistoire(evt)
     {
         groupe[j].innerHTML = tableauCorrespondance[tableauNomGroupe[nbAlea3]]["nom"];
         leGroupe = tableauCorrespondance[tableauNomGroupe[nbAlea3]];
-    }          
-           
-    var btnGo = document.getElementById("btnGo");
-    btnGo.addEventListener("touchstart", demarrer);
+    }         
 }
 
-function demarrer(evt)
+function afficherRegles(evt)
 {
     var histoirePopup = document.getElementById("histoirePopup");
     histoirePopup.style.display = "none";
     var popupDebut = document.getElementById("popupDebut");
     popupDebut.style.display = "block";
     var btnGoJeu = document.getElementById("btnGoJeu");
-    btnGoJeu.addEventListener("touchstart", goSuperCode);
+    btnGoJeu.addEventListener("touchstart", demarrerPopupChoix);
 }
 
-function goSuperCode(evt)
+function demarrerPopupChoix(evt)
 {
     var popupDebut = document.getElementById("popupDebut");
     popupDebut.style.display = "none";
+    var choisirPopup = document.getElementById("choisirPopup");
+    choisirPopup.style.display = "block";
+    var lesPGroupe = document.querySelectorAll("#choixGroupe>p");
+    for(var j=0; j<lesPGroupe.length; j++)
+    {
+        lesPGroupe[j].addEventListener("touchstart", choisirGr); 
+    }
+    var lesPNiveau = document.getElementById("choixNiveau").children;
+    for(var k=0; k<lesPNiveau.length; k++)
+    {
+        lesPNiveau[k].addEventListener("touchstart",choisirLvl);       
+    }
+}
+
+function choisirGr (evt)
+{
+    var idGroupe = this.id;
+	var PSelect = document.querySelector (".selectedGr");
+	if (PSelect!=null)
+	{		
+		PSelect.classList.toggle("selectedGr");
+	}
+	this.classList.add("selectedGr");
+    idGroupeSelected = this.id;
+    
+    switch (idGroupe)
+    {
+        case "A+" : 
+            var srcFond = aPlus[1].src;
+            document.getElementById("main").style.backgroundImage = "url("+srcFond+")";
+            break;
+        case "A-" : 
+            this.src = "../www/img/a--.jpg";
+            var srcFond = aMoins[1].src;
+             document.getElementById("main").style.backgroundImage = "url("+srcFond+")";
+            break;
+        case "B+" : 
+            this.src = "../www/img/b++.jpg";
+            var srcFond = bPlus[1].src;
+             document.getElementById("main").style.backgroundImage = "url("+srcFond+")";
+            break;
+        case "B-" : 
+            this.src = "../www/img/b--.jpg";
+            var srcFond = bMoins[1].src;
+             document.getElementById("main").style.backgroundImage = "url("+srcFond+")";
+            break;
+        case "AB+" : 
+            this.src = "../www/img/ab++.jpg";
+            var srcFond = abPlus[1].src;
+             document.getElementById("main").style.backgroundImage = "url("+srcFond+")";
+            break;
+        case "AB-" : 
+            this.src = "../www/img/ab--.jpg";
+            var srcFond = abMoins[1].src;
+             document.getElementById("main").style.backgroundImage = "url("+srcFond+")";
+            break;
+        case "O+" : 
+            this.src = "../www/img/o++.jpg";
+            var srcFond = oPlus[1].src;
+             document.getElementById("main").style.backgroundImage = "url("+srcFond+")";
+            break;
+        case "O-" : 
+            this.src = "../www/img/o--.jpg";
+            var srcFond = oMoins[1].src;
+             document.getElementById("main").style.backgroundImage = "url("+srcFond+")";
+            break;
+    }
+    if(idGroupeSelected!="" && idLvlSelected!="")
+    {
+        var btnChoisir = document.getElementById("btnChoisir");
+        btnChoisir.addEventListener("touchstart", goJouer);
+    }
+}
+
+function choisirLvl(evt)
+{
+    idLvlSelected = this.id;
+	var PSelectLvl = document.querySelector (".selectedLvl");
+	if (PSelectLvl!=null)
+	{		
+		PSelectLvl.classList.toggle("selectedLvl");
+	}
+	this.classList.add("selectedLvl");
+    if(idGroupeSelected!="" && idLvlSelected!="")
+    {
+        var btnChoisir = document.getElementById("btnChoisir");
+        btnChoisir.addEventListener("touchstart", goJouer);
+    }
+}
+
+function goJouer(evt)
+{
+    var choisirPopup = document.getElementById("choisirPopup");
+    choisirPopup.style.display = "none";
+    var btnRemplir = document.getElementById("btnRemplir");
+    btnRemplir.addEventListener("touchstart", goJouer2);
     var chrono = document.getElementById("chrono");
     chrono.style.display = "block";
     var secondes = document.getElementById("secondes");
     secondes.innerHTML = "30''"
-    var lesGroupes = document.getElementById("groupes").children;
-    for (var v = 0; v<lesGroupes.length; v++)
-    {
-        lesGroupes[v].addEventListener("touchstart", choisirGroupe);
-    }
 }
+
+function goJouer2 (evt)
+{
+    numTimer = setInterval(goChrono, 1000);
+    this.removeEventListener("touchstart", goJouer2);
+    this.addEventListener("touchstart",compterClick);    
+}
+
 
 function goChrono (evt)
 {
@@ -160,87 +256,35 @@ function goChrono (evt)
     } 
 }
 
-function choisirGroupe (evt)
-{
-    var idGroupe = this.id;
-    var groupes = document.getElementById("groupes").children;
-    for (var k = 0; k<groupes.length; k++)
-    {
-        var idGroupes = groupes[k].id;
-        groupes[k].src = "../www/img/"+idGroupes.toLowerCase()+".jpg";
-    }
-    
-    switch (idGroupe)
-    {
-        case "A+" : 
-            this.src = "../www/img/a++.jpg";
-            var srcFond = aPlus[1].src;
-            document.getElementById("main").style.backgroundImage = "url("+srcFond+")";
-            idGroupeSelected = this.id;
-            break;
-        case "A-" : 
-            this.src = "../www/img/a--.jpg";
-            var srcFond = aMoins[1].src;
-             document.getElementById("main").style.backgroundImage = "url("+srcFond+")";
-            idGroupeSelected = this.id;
-            break;
-        case "B+" : 
-            this.src = "../www/img/b++.jpg";
-            var srcFond = bPlus[1].src;
-             document.getElementById("main").style.backgroundImage = "url("+srcFond+")";
-            idGroupeSelected = this.id;
-            break;
-        case "B-" : 
-            this.src = "../www/img/b--.jpg";
-            var srcFond = bMoins[1].src;
-             document.getElementById("main").style.backgroundImage = "url("+srcFond+")";
-            idGroupeSelected = this.id;
-            break;
-        case "AB+" : 
-            this.src = "../www/img/ab++.jpg";
-            var srcFond = abPlus[1].src;
-             document.getElementById("main").style.backgroundImage = "url("+srcFond+")";
-            idGroupeSelected = this.id;
-            break;
-        case "AB-" : 
-            this.src = "../www/img/ab--.jpg";
-            var srcFond = abMoins[1].src;
-             document.getElementById("main").style.backgroundImage = "url("+srcFond+")";
-            idGroupeSelected = this.id;
-            break;
-        case "O+" : 
-            this.src = "../www/img/o++.jpg";
-            var srcFond = oPlus[1].src;
-             document.getElementById("main").style.backgroundImage = "url("+srcFond+")";
-            idGroupeSelected = this.id;
-            break;
-        case "O-" : 
-            this.src = "../www/img/o--.jpg";
-            var srcFond = oMoins[1].src;
-             document.getElementById("main").style.backgroundImage = "url("+srcFond+")";
-            idGroupeSelected = this.id;
-            break;
-    }  
-    var btnRemplir = document.getElementById("btnRemplir");
-    btnRemplir.addEventListener("touchstart", goJouer);
-}
-
-function goJouer (evt)
-{
-    numTimer = setInterval(goChrono, 1000);
-    this.removeEventListener("touchstart", goJouer);
-    var lesGroupes = document.getElementById("groupes").children;
-    for (var x = 0; x<lesGroupes.length; x++)
-    {
-        lesGroupes[x].removeEventListener("touchstart", choisirGroupe);
-    }
-    this.addEventListener("touchstart",compterClick);    
-}
-
 function compterClick(evt)
 {
     nbClick = nbClick + 1;
-    if (nbClick ==20)
+    var nbClick1;
+    var nbClick2;
+    var nbClick3;
+    var nbClick4;
+    switch(idLvlSelected)
+    {
+        case "facile": 
+            nbClick1 = 15;
+            nbClick2 = 30;
+            nbClick3 = 45;
+            nbClick4 = 60;
+            break;
+        case "moyen": 
+            nbClick1 = 30;
+            nbClick2 = 60;
+            nbClick3 = 90;
+            nbClick4 = 120;
+            break;
+        case "difficile": 
+            nbClick1 = 50;
+            nbClick2 = 100;
+            nbClick3 = 150;
+            nbClick4 = 200;
+            break;    
+    }
+    if (nbClick == nbClick1)
     {
        switch (idGroupeSelected)
        {
@@ -279,7 +323,7 @@ function compterClick(evt)
        }
     }
     
-    if (nbClick ==40)
+    if (nbClick == nbClick2)
     {
        switch (idGroupeSelected)
        {
@@ -318,7 +362,7 @@ function compterClick(evt)
        }
     }
     
-   if (nbClick ==60)
+   if (nbClick == nbClick3)
     {
        switch (idGroupeSelected)
        {
@@ -357,7 +401,7 @@ function compterClick(evt)
        }
     }
     
-    if (nbClick ==80)
+    if (nbClick == nbClick4)
     {
         clearInterval(numTimer);
        switch (idGroupeSelected)
@@ -422,4 +466,9 @@ function compterClick(evt)
         var chrono = document.getElementById("chrono");
         chrono.style.display = "none";
     }
+}
+
+function rejouer(evt)
+{
+    location.reload();
 }
