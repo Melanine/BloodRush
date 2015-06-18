@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "utf-8"/>
+		<title>Adonym</title>
+		<link rel="stylesheet" href="css/styleIndexJeu.css" type="text/css">
+		<link rel="icon" type="image/png" href="img/favicon.png">
+		<script type="text/javascript" src="js/indexJeu.js"></script>
+	</head>
+	<body>
+		<section>
+			<article> 
+               <div id="main"> 
+                   <div id="toutesLesPopup">
+                       <div id = "popupDebut">
+                            <p>Choisis le bon groupe avec le bon rhésus avant de commencer. Clique sur le petit coeur le plus rapidement possible pour remplir la poche. Tu n'as que 30 secondes.</p>
+                            <img id = "btnGoJeu" src = "img/btnGo.png" alt = "Bouton démarrer">
+                        </div>
+
+                       <div id = "histoirePopup">
+                           <p><span class="prenom"></span> est atteint(e) d'une <span id="maladie"></span>. Il faut que tu l'aides ! </br> Voici les informations nécessaires : </br> Groupe : <span class= "groupe"></span></p>
+                            <img id = "btnGo" src = "img/btnJouer.png" alt="Bouton jouer">  
+                        </div>
+
+                        <div id = "popupFin1">
+                            <p>Bravo, vous avez sauvé <span class = "prenom"></span> ! Vous êtes prêt pour aller donner votre sang.</p>
+                            <div>
+                                <img class = "btnRecommencer" src = "img/recommencer.png" alt="Bouton recommencer">
+                                <a href = "final.html">
+                                <img src = "img/retourAccueil.png" alt="Bouton retour à l'accueil">
+                                </a>
+                            </div>
+                        </div>
+
+                        <div id = "popupFin2">
+                            <p>Dommage, vous n'avez pas été assez rapide !</p>
+                            <div>
+                                <img class = "btnRecommencer" src = "img/recommencer.png" alt="Bouton recommencer">
+                                <a href = "final.html">
+                                <img src = "img/retourAccueil.png" alt = "Bouton retour à l'accueil">
+                                </a>
+                            </div>
+                        </div>
+
+                        <div id = "popupFin3">
+                            <p>Dommage, vous n'avez pas choisi le bon groupe, <span class = "prenom"></span> était <span class = "groupe"></span>.</p>
+                            <div>
+                                <img class = "btnRecommencer" src = "img/recommencer.png" alt = "Bouton recommencer">
+                                <a href = "final.html">
+                                <img src = "img/retourAccueil.png" alt = "Bouton retour à l'accueil">
+                                </a>
+                            </div>
+                        </div>	
+                    </div>		    
+                    <div id = "chrono">
+                        <img id = "timer" src="img/chrono.png" alt = "Chronomètre">
+                        <p id="secondes"></p>
+                    </div>
+                    <img id = "btnRemplir" src = "img/coeur.png" alt = "Coeur pour remplir la poche">
+                </div>
+                
+			    <div id = "groupes">
+                    <img id = "A+" src = "img/a+.jpg" alt = "Bouton A+">
+                    <img id = "A-" src = "img/a-.jpg" alt = "Bouton A-">
+                    <img id = "B+" src = "img/b+.jpg" alt = "Bouton B+">
+                    <img id = "B-" src = "img/b-.jpg" alt = "Bouton B-">
+                    <img id = "AB+" src = "img/ab+.jpg" alt = "Bouton AB+">
+                    <img id = "AB-" src = "img/ab-.jpg" alt = "Bouton AB-">
+                    <img id = "O+" src = "img/o+.jpg" alt = "Bouton O+">
+                    <img id = "O-" src = "img/o-.jpg" alt = "Bouton O-">
+			    </div>
+                <div id = "portrait">
+                    <p>Désolé, cette application n'est pas disponible en mode portrait</p>
+                </div>
+			</article>
+		</section>	
+	</body>
+</html>	

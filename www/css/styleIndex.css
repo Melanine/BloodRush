@@ -1,0 +1,230 @@
+@font-face {
+    font-family : 'norwesterregular';
+    src : url('polices/norwester/norwester-webfont.eot');
+    src : url('polices/norwester/norwester-webfont.eot?#iefix') format('embedded-opentype'),
+         url('polices/norwester/norwester-webfont.woff2') format('woff2'),
+         url('polices/norwester/norwester-webfont.woff') format('woff'),
+         url('polices/norwester/norwester-webfont.ttf') format('truetype'),
+         url('polices/norwester/norwester-webfont.svg#norwesterregular') format('svg');
+    font-weight : normal;
+    font-style : normal;
+
+}
+
+@font-face {
+    font-family : 'print_boldregular';
+    src : url('polices/printBold/PrintBold-webfont.eot');
+    src : url('polices/printBold/PrintBold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('polices/printBold/PrintBold-webfont.woff2') format('woff2'),
+         url('polices/printBold/PrintBold-webfont.woff') format('woff'),
+         url('polices/printBold/PrintBold-webfont.ttf') format('truetype'),
+         url('polices/printBold/PrintBold-webfont.svg#print_boldregular') format('svg');
+    font-weight : normal;
+    font-style : normal;
+
+}
+
+<!--Code-->
+*
+{
+    box-sizing : border-box;
+}
+
+html,article,section
+{
+    height : 100%;
+    margin : 0;
+    padding : 0;
+}
+
+article
+{
+    position : relative;
+}
+
+#index
+{    
+    background-image : url("../img/maison.png");
+    background-size : 100%;
+    margin : 0;
+    padding : 0;
+    background-position : bottom;
+    background-color: rgb(178, 216, 243);
+    width : 100%;
+    display : flex;
+    flex-direction : column;
+    background-repeat : no-repeat;
+    height : 100%;
+}
+
+#portrait
+{
+        display : none;
+}
+
+@media screen and (orientation:portrait)
+{
+
+    #portrait
+    {
+        display : block;
+        position : absolute;
+        color : white;
+        background-color : rgba(0, 0, 0,0.9);
+        width : 100%;
+        height : 100%;
+        top : 0;
+        left : 0;
+        font-family : 'print_boldregular';
+        text-align : center;
+        display : flex;
+        flex-direction : column;
+        justify-content : center;
+        font-size : 5em;
+    }
+
+}
+
+#titres
+{
+    text-align : center;
+    padding-top : 3%;
+}
+
+#titres>h1
+{
+    font-family : 'norwesterregular';
+    font-size : 10em;
+    margin : 0;
+    padding : 0;
+}
+
+#titres>h2
+{
+    font-family : 'print_boldregular';
+    font-size : 7em;
+    margin : 0;
+    padding : 0;
+    margin-top : 1%;
+    text-shadow : 1px 1px;
+}
+
+#btnJouer
+{
+    margin-top : 1%;
+}
+
+@media screen and (max-height:900px)
+{
+    #titres>h1
+    {
+        font-size : 7em;
+    }
+    #titres>h2
+    {
+        font-size : 5em;
+    }
+    #btnJouer
+    {
+        width : 20%;
+    }
+}
+
+@media screen and (max-width:1200px)
+{
+    #titres>h1
+    {
+        font-size : 7em;
+    }
+    #titres>h2
+    {
+        font-size : 5em;
+    }
+    #btnJouer
+    {
+        width : 20%;
+    }  
+}
+    
+@media screen and (max-height:750px)
+{
+    #titres>h1
+    {
+        font-size : 5em;
+    }
+    #titres>h2
+    {
+        font-size : 3em;
+    }
+    #btnJouer
+    {
+        width : 10%;
+    }
+}
+
+#boiteAuxLettres
+{
+    width : 10%;
+    height : 15%;
+    position : absolute;
+    bottom : 12%;
+    right : 6%;  
+}
+
+#boiteAuxLettres
+{
+	cursor : pointer;
+}	
+
+#popupCorrespondance
+{
+    background-color : #E8E8E8;
+    position : fixed;
+    width : 70%;
+    height : 80%;
+    bottom : 10%;
+    right : 15%;
+    text-align : center;
+    border : 1px solid #E8E8E8;
+    border-radius : 1%;
+}
+
+#tableau
+{
+    width : 60%;
+    margin-top : 4%;
+}
+
+#croix
+{
+   float : right; 
+    margin-right : 3%;
+    margin-top : 2%;
+}
+
+#main
+{
+    flex : 1;
+}
+
+body
+{
+    min-height : 100%;
+    display : flex;
+    flex-direction : column;
+}
+
+footer>p
+{
+    font-family : 'print_boldregular';
+    background-color : rgba(0, 0, 0, 0.9);
+    color : white;
+    margin : 0;
+    padding : 0.1%;
+}
+
+footer
+{
+    text-align : center;
+}
+/* c'est grace au flex:1 sur le main, au min-height : 100%, au display : flex et au flex-direction:column sur le body et au height : 100% sur html que le footer est toujours en bas */
