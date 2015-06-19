@@ -81,6 +81,11 @@ function initialiser(evt)
     }           
     var btnGo = document.getElementById("btnGo");
     btnGo.addEventListener("touchstart", afficherRegles);
+    var audio = document.querySelector ("audio");
+    audio.play();
+    audio.volume = 1;
+    var logoSon = document.getElementById("logoSon");
+    logoSon.addEventListener("touchstart", couperSon);
 }
 
 function genererHistoire(evt)
@@ -237,7 +242,8 @@ function goJouer2 (evt)
 
 function goChrono (evt)
 {
-   var secondesVar = document.getElementById("secondes");
+    var audio = document.querySelector ("audio");
+    var secondesVar = document.getElementById("secondes");
     secondes=secondes-1; 
     if (secondes>=0)
     {
@@ -253,7 +259,16 @@ function goChrono (evt)
         btnRemplir.removeEventListener("touchstart",compterClick);
         var chrono = document.getElementById("chrono");
         chrono.style.display = "none";
-    } 
+        //Récupérer la balise audio et changer le source
+        audio.src =("../www/audio/cardiac.mp3");
+        audio.volume=0.2;
+    }
+    if(secondes==5)
+    {
+        //Récupérer la balise audio et changer le source
+        audio.src =("../www/audio/speed.mp3");
+        audio.volume=0.4; 
+    }
 }
 
 function compterClick(evt)
@@ -455,6 +470,10 @@ function compterClick(evt)
             popupFin1.style.display = "block";
             var btnRemplir = document.getElementById("btnRemplir");
             btnRemplir.removeEventListener("touchstart",compterClick);
+            //Récupérer balise audio et changer la source
+            var audio = document.querySelector ("audio");
+            audio.src =("../www/audio/applause.mp3");
+            audio.volume=0.5;
         }
         else
         {
@@ -462,6 +481,10 @@ function compterClick(evt)
             popupFin3.style.display = "block";
             var btnRemplir = document.getElementById("btnRemplir");
             btnRemplir.removeEventListener("touchstart",compterClick);
+            //Récupérer balise audio et changer la source
+            var audio = document.querySelector ("audio");
+            audio.src =("../www/audio/cardiac.mp3");
+            audio.volume=0.2;
         }
         var chrono = document.getElementById("chrono");
         chrono.style.display = "none";
@@ -471,4 +494,22 @@ function compterClick(evt)
 function rejouer(evt)
 {
     location.reload();
+}
+
+function couperSon(evt)
+{
+    
+    var logoSon = document.getElementById("logoSon");
+    var sourceLogo = logoSon.getAttribute("src");
+    var audio = document.querySelector ("audio");
+    if (sourceLogo=="../www/son.png")
+    {
+        logoSon.src = ("../www/img/pasdeson.png");
+        audio.pause();
+    }
+    else
+    {
+        logoSon.src = ("../www/img/son.png");
+        audio.play(); 
+    }
 }

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Adonym</title>
+    <title>Blood Rush</title>
     <link rel="stylesheet" href="css/styleIndexJeu.css" type="text/css">
     <link rel="icon" type="image/png" href="img/favicon.png">
     <script type="text/javascript" src="js/indexJeu.js"></script>
@@ -67,7 +67,7 @@
                     </div>
 
                     <div id="popupFin3">
-                        <p>Dommage, vous n'avez pas choisi le bon groupe, <span class="prenom"></span> était <span class="groupe"></span>.</p>
+                        <p><span class="prenom"></span> n'a pas pû être sauvé(e), le patient était <span class="groupe"></span>.</p>
                         <div>
                             <img class="btnRecommencer" src="img/recommencer.png" alt="Bouton recommencer">
                             <a href="final.html">
@@ -81,12 +81,15 @@
                     <p id="secondes"></p>
                 </div>
                 <img id="btnRemplir" src="img/coeur.png" alt="Coeur pour remplir la poche">
+                <img id = "logoSon" src="img/son.png">
             </div>
             <div id="portrait">
                 <p>Désolé, cette application n'est pas disponible en mode portrait</p>
             </div>
+            <audio loop="loop"> 
+               <source src="audio/heartbeat.mp3" type="audio/mp3" /> 
+            </audio> 
         </article>
     </section>
 </body>
-
 </html>

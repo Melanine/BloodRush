@@ -112,9 +112,36 @@ article
     position : fixed;
     width : 10%;
     height : 8%;
-    top : 18%;
+    top : 15%;
     left : 45%;
     color : white;
+}
+
+@media screen and (max-height:900px)
+{
+    #secondes
+    {
+        font-size : 3em;
+        top : 10%;
+    }
+}
+
+@media screen and (max-width:1200px)
+{
+    #secondes
+    {
+        font-size : 3em;
+        top : 10%;
+    }
+}
+    
+@media screen and (max-height:750px)
+{
+    #secondes
+    {
+        font-size : 2em;
+        top : 8%;
+    }
 }
 
 #choixNiveau,#choixGroupe
@@ -126,6 +153,30 @@ article
     font-family : 'print_boldregular';
 }
 
+@media screen and (max-height:900px)
+{
+    #choixNiveau,#choixGroupe
+    {
+        font-size : 3em;
+    }
+}
+
+@media screen and (max-width:1200px)
+{
+    #choixNiveau,#choixGroupe
+    {
+        font-size : 3em;
+    }
+}
+    
+@media screen and (max-height:750px)
+{
+    #choixNiveau,#choixGroupe
+    {
+        font-size : 2em;
+    }
+}
+
 #popupDebut>p,#popupFin1>p,#popupFin2>p,#popupFin3>p,#histoirePopup>p,#choisirPopup>p
 {
     font-family : 'print_boldregular';
@@ -133,7 +184,31 @@ article
     padding : 0;
     margin-top :1%;
     text-shadow : 1px 1px;
-    font-size : 5em;
+    font-size : 4em;
+}
+
+@media screen and (max-height:900px)
+{
+    #popupDebut>p,#popupFin1>p,#popupFin2>p,#popupFin3>p,#histoirePopup>p,#choisirPopup>p
+    {
+        font-size : 3em;
+    }
+}
+
+@media screen and (max-width:1200px)
+{
+    #popupDebut>p,#popupFin1>p,#popupFin2>p,#popupFin3>p,#histoirePopup>p,#choisirPopup>p
+    {
+        font-size : 3em;
+    }
+}
+    
+@media screen and (max-height:750px)
+{
+    #popupDebut>p,#popupFin1>p,#popupFin2>p,#popupFin3>p,#histoirePopup>p,#choisirPopup>p
+    {
+        font-size : 2em;
+    }
 }
 
 #popupDebut
@@ -195,4 +270,12 @@ body
 {
 	color:white;
 	background-color:black;
+}
+
+#logoSon
+{
+    position : absolute;
+    bottom:0;
+    right:0;
+    padding : 2%;
 }
