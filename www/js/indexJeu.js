@@ -81,8 +81,6 @@ function initialiser(evt)
     }           
     var btnGo = document.getElementById("btnGo");
     btnGo.addEventListener("touchstart", afficherRegles);
-    var audio = document.querySelector ("audio");
-    audio.volume = 1;
 }
 
 function genererHistoire(evt)
@@ -239,8 +237,7 @@ function goJouer2 (evt)
 
 function goChrono (evt)
 {
-    var audio = document.querySelector ("audio");
-    var secondesVar = document.getElementById("secondes");
+   var secondesVar = document.getElementById("secondes");
     secondes=secondes-1; 
     if (secondes>=0)
     {
@@ -256,16 +253,7 @@ function goChrono (evt)
         btnRemplir.removeEventListener("touchstart",compterClick);
         var chrono = document.getElementById("chrono");
         chrono.style.display = "none";
-        //Récupérer la balise audio et changer le source
-        audio.src =("../www/audio/cardiac.mp3");
-        audio.volume=0.5;
-    }
-    if(secondes==5)
-    {
-        //Récupérer la balise audio et changer le source
-        audio.src =("../www/audio/speed.mp3");
-        audio.volume=0.4; 
-    }
+    } 
 }
 
 function compterClick(evt)
@@ -467,10 +455,6 @@ function compterClick(evt)
             popupFin1.style.display = "block";
             var btnRemplir = document.getElementById("btnRemplir");
             btnRemplir.removeEventListener("touchstart",compterClick);
-            //Récupérer balise audio et changer la source
-            var audio = document.querySelector ("audio");
-            audio.src =("../www/audio/applause.mp3");
-            audio.volume=0.5;
         }
         else
         {
@@ -478,10 +462,6 @@ function compterClick(evt)
             popupFin3.style.display = "block";
             var btnRemplir = document.getElementById("btnRemplir");
             btnRemplir.removeEventListener("touchstart",compterClick);
-            //Récupérer balise audio et changer la source
-            var audio = document.querySelector ("audio");
-            audio.src =("../www/audio/cardiac.mp3");
-            audio.volume=0.5;
         }
         var chrono = document.getElementById("chrono");
         chrono.style.display = "none";
