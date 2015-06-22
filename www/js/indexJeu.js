@@ -83,6 +83,9 @@ function initialiser(evt)
     btnGo.addEventListener("touchstart", afficherRegles);
     var logoSon = document.getElementById("logoSon");
     logoSon.addEventListener("touchstart", couperSon);
+    
+    var btnRemplir = document.getElementById("btnRemplir");
+    btnRemplir.style.visibility="hidden";
 }
 
 function genererHistoire(evt)
@@ -222,6 +225,8 @@ function goJouer(evt)
     var choisirPopup = document.getElementById("choisirPopup");
     choisirPopup.style.display = "none";
     var btnRemplir = document.getElementById("btnRemplir");
+    btnRemplir.style.visibility="visible";
+    var btnRemplir = document.getElementById("btnRemplir");
     btnRemplir.addEventListener("touchstart", goJouer2);
     var chrono = document.getElementById("chrono");
     chrono.style.display = "block";
@@ -260,14 +265,14 @@ function goChrono (evt)
         var chrono = document.getElementById("chrono");
         chrono.style.display = "none";
         //Récupérer la balise audio et changer le source
-        audio.src =("../www/audio/cardiac.mp3");
+        audio.src =("../www/audio/cardiac.ogg");
         audio.volume=0.2;
         audio.play();
     }
     if(secondes==5)
     {
         //Récupérer la balise audio et changer le source
-        audio.src =("../www/audio/speed.mp3");
+        audio.src =("../www/audio/speed.ogg");
         audio.volume=0.5;
         audio.play();
     }
@@ -474,7 +479,7 @@ function compterClick(evt)
             btnRemplir.removeEventListener("touchstart",compterClick);
             //Récupérer balise audio et changer la source
             var audio = document.querySelector ("audio");
-            audio.src =("../www/audio/applause.mp3");
+            audio.src =("../www/audio/applause.ogg");
             audio.volume=0.5;
             audio.play();
         }
@@ -486,7 +491,7 @@ function compterClick(evt)
             btnRemplir.removeEventListener("touchstart",compterClick);
             //Récupérer balise audio et changer la source
             var audio = document.querySelector ("audio");
-            audio.src =("../www/audio/cardiac.mp3");
+            audio.src =("../www/audio/cardiac.ogg");
             audio.volume=0.2;
             audio.play();
         }
