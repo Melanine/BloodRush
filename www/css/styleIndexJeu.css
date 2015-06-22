@@ -282,5 +282,60 @@ body
 
 .btnRecommencer
 {
+    width : 20%;
     margin-top:2%;
+}
+
+@media screen and (max-height:900px)
+{
+    .btnRecommencer
+    {
+        width : 15%;
+    }
+}
+
+@media screen and (max-width:1200px)
+{
+    .btnRecommencer
+    {
+        width : 15%;
+    }
+}
+    
+@media screen and (max-height:750px)
+{
+    .btnRecommencer
+    {
+        width : 10%;
+    }
+}
+
+.retourAccueil
+{
+    width : 25%;
+    margin-top:2%;
+}
+
+@media screen and (max-height:900px)
+{
+    .retourAccueil
+    {
+        width : 20%;
+    }
+}
+
+@media screen and (max-width:1200px)
+{
+    .retourAccueil
+    {
+        width : 20%;
+    }
+}
+    
+@media screen and (max-height:750px)
+{
+    .retourAccueil
+    {
+        width : 15%;
+    }
 }

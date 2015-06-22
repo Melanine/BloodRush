@@ -268,6 +268,8 @@ function goChrono (evt)
         audio.src =("../www/audio/cardiac.ogg");
         audio.volume=0.2;
         audio.play();
+        var btnRemplir = document.getElementById("btnRemplir");
+        btnRemplir.style.visibility="hidden";
     }
     if(secondes==5)
     {
@@ -497,6 +499,8 @@ function compterClick(evt)
         }
         var chrono = document.getElementById("chrono");
         chrono.style.display = "none";
+        var btnRemplir = document.getElementById("btnRemplir");
+        btnRemplir.style.visibility="hidden";
     }
 }
 
