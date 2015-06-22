@@ -197,9 +197,34 @@ article
 
 #croix
 {
-   float : right; 
+    float : right; 
     margin-right : 3%;
     margin-top : 2%;
+    width : 3%;
+}
+
+@media screen and (max-height:900px)
+{
+    #croix
+    {
+        width : 2%;
+    }
+}
+
+@media screen and (max-width:1200px)
+{
+    #croix
+    {
+        width : 2%;
+    }  
+}
+    
+@media screen and (max-height:750px)
+{
+    #croix
+    {
+        width : 1%;
+    }
 }
 
 #main

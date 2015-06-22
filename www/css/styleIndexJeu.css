@@ -52,9 +52,9 @@ html,article,section,body
     text-shadow : 1px 1px;
 }
 
-#btnGo
+#btnGo,#btnGoJeu
 {
-    width : 40%;
+    width : 30%;
     margin : 5% auto;
 }
 
@@ -112,7 +112,7 @@ article
     position : fixed;
     width : 10%;
     height : 8%;
-    top : 15%;
+    top : 18%;
     left : 45%;
     color : white;
 }
@@ -122,7 +122,7 @@ article
     #secondes
     {
         font-size : 3em;
-        top : 10%;
+        top : 12%;
     }
 }
 
@@ -131,7 +131,7 @@ article
     #secondes
     {
         font-size : 3em;
-        top : 10%;
+        top : 12%;
     }
 }
     
@@ -140,7 +140,7 @@ article
     #secondes
     {
         font-size : 2em;
-        top : 8%;
+        top : 10%;
     }
 }
 
@@ -278,4 +278,9 @@ body
     bottom:0;
     right:0;
     padding : 2%;
+}
+
+.btnRecommencer
+{
+    margin-top:2%;
 }

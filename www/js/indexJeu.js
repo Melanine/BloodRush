@@ -81,9 +81,6 @@ function initialiser(evt)
     }           
     var btnGo = document.getElementById("btnGo");
     btnGo.addEventListener("touchstart", afficherRegles);
-    var audio = document.querySelector ("audio");
-    audio.play();
-    audio.volume = 1;
     var logoSon = document.getElementById("logoSon");
     logoSon.addEventListener("touchstart", couperSon);
 }
@@ -236,7 +233,10 @@ function goJouer2 (evt)
 {
     numTimer = setInterval(goChrono, 1000);
     this.removeEventListener("touchstart", goJouer2);
-    this.addEventListener("touchstart",compterClick);    
+    this.addEventListener("touchstart",compterClick);
+    var audio = document.querySelector ("audio");
+    audio.play();
+    audio.volume = 1;
 }
 
 
@@ -262,12 +262,14 @@ function goChrono (evt)
         //Récupérer la balise audio et changer le source
         audio.src =("../www/audio/cardiac.mp3");
         audio.volume=0.2;
+        audio.play();
     }
     if(secondes==5)
     {
         //Récupérer la balise audio et changer le source
         audio.src =("../www/audio/speed.mp3");
-        audio.volume=0.4; 
+        audio.volume=0.5;
+        audio.play();
     }
 }
 
@@ -474,6 +476,7 @@ function compterClick(evt)
             var audio = document.querySelector ("audio");
             audio.src =("../www/audio/applause.mp3");
             audio.volume=0.5;
+            audio.play();
         }
         else
         {
@@ -485,6 +488,7 @@ function compterClick(evt)
             var audio = document.querySelector ("audio");
             audio.src =("../www/audio/cardiac.mp3");
             audio.volume=0.2;
+            audio.play();
         }
         var chrono = document.getElementById("chrono");
         chrono.style.display = "none";
@@ -497,12 +501,11 @@ function rejouer(evt)
 }
 
 function couperSon(evt)
-{
-    
+{ 
     var logoSon = document.getElementById("logoSon");
     var sourceLogo = logoSon.getAttribute("src");
     var audio = document.querySelector ("audio");
-    if (sourceLogo=="../www/son.png")
+    if (sourceLogo=="img/son.png" || sourceLogo=="../www/img/son.png")
     {
         logoSon.src = ("../www/img/pasdeson.png");
         audio.pause();
@@ -510,6 +513,6 @@ function couperSon(evt)
     else
     {
         logoSon.src = ("../www/img/son.png");
-        audio.play(); 
+        audio.play();
     }
 }
