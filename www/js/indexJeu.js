@@ -81,8 +81,6 @@ function initialiser(evt)
     }           
     var btnGo = document.getElementById("btnGo");
     btnGo.addEventListener("touchstart", afficherRegles);
-    var logoSon = document.getElementById("logoSon");
-    logoSon.addEventListener("touchstart", couperSon);
     
     var btnRemplir = document.getElementById("btnRemplir");
     btnRemplir.style.visibility="hidden";
@@ -507,21 +505,4 @@ function compterClick(evt)
 function rejouer(evt)
 {
     location.reload();
-}
-
-function couperSon(evt)
-{ 
-    var logoSon = document.getElementById("logoSon");
-    var sourceLogo = logoSon.getAttribute("src");
-    var audio = document.querySelector ("audio");
-    if (sourceLogo=="img/son.png" || sourceLogo=="../www/img/son.png")
-    {
-        logoSon.src = ("../www/img/pasdeson.png");
-        audio.pause();
-    }
-    else
-    {
-        logoSon.src = ("../www/img/son.png");
-        audio.play();
-    }
 }
