@@ -1,0 +1,64 @@
+@font-face {
+    font-family: 'bebas_neuebold';
+    src: url('fonts/bebasneue_bold-webfont.eot');
+    src: url('fonts/bebasneue_bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/bebasneue_bold-webfont.woff2') format('woff2'),
+         url('fonts/bebasneue_bold-webfont.woff') format('woff'),
+         url('fonts/bebasneue_bold-webfont.ttf') format('truetype'),
+         url('fonts/bebasneue_bold-webfont.svg#bebas_neuebold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body
+{
+    width:100%;
+    text-align: center;
+}
+
+#body
+{
+    border:2px solid rgb(128, 21, 21);
+    text-align: center;
+    height:28%;
+    margin-top:50%;
+    padding-top:20px;
+    margin-right:30%;
+    margin-left:30%;
+    border-radius: 3px;
+}
+
+.titre
+{
+    text-align: center;
+    background-color:rgb(13, 77, 77);
+    margin-right:150px;
+    margin-left:150px;
+    border-radius: 3px;
+    color:white;
+    font-family: 'bebas_neuebold';
+}
+
+.resultat
+{
+    border:2px solid rgb(86, 119, 20);
+    margin-right:150px;
+    margin-left:150px;
+    border-radius: 3px;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+    color:rgb(13, 77, 77);
+    font-family: 'bebas_neuebold';
+}
+
+#saisonText
+{
+    font-family: 'bebas_neuebold';
+    text-decoration:underline;
+    color:rgb(13, 77, 77);
+}
+
+option,select
+{
+    font-family: 'bebas_neuebold';
+}
